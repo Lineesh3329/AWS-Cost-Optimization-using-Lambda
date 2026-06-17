@@ -1,56 +1,71 @@
 # `AWS Cost Optimization Using Lambda`
 
-## About the Project
-This project demonstrates a secure and scalable AWS infrastructure using VPC, private subnets, NAT Gateway, ALB, EC2, and Auto Scaling Group (ASG).
+## Project Overview
 
-The ALB distributes traffic across EC2 instances hosted in private subnets, while the NAT Gateway provides secure internet access for private servers.
+This project is a serverless automation solution designed to reduce unnecessary AWS storage costs by automatically identifying and deleting unused EBS snapshots. 
 
-Auto Scaling improves availability and scalability by automatically managing EC2 instances based on traffic demand.
+The project leverages AWS Lambda and Python (Boto3) to scan EBS snapshots, verify their associated volumes, and remove orphaned snapshots linked to deleted or unattached volumes.
 
-This project provides hands-on experience with AWS networking, load balancing, and real-world DevOps deployment architecture.
+By automating the cleanup process, the solution improves resource utilization, minimizes storage expenses, and helps maintain a cost-efficient AWS environment.
 
 -----
-## Used AWS Services
-1. Virtual Private Cloud (VPC)
-2. Auto Scaling Group (ASG)
-3. Elastic Cloud Compute (EC2)
-4. Target Groups
-5. Application Load Balancer (ALB)
-6. Security Groups
+## Techs and AWS Services used 
+1. Amazon EC2
+2. Amazon EBS
+3. AWS Lambda
+4. IAM
+5. Python boto3
+6. JSON
 -----
 
 ## Tasks Performed
-1. Created VPC with public and private subnets
-2. Configured NAT Gateway and Auto Scaling
-3. Launched EC2 instances in private subnets
-4. Used Bastion Host for SSH access
-5. Deployed web application on EC2
-6. Configured Target Group and ALB
-7. Verified load-balanced traffic flow
-8. Access application via Load Balancer DNS Name
+### 1: Infrastructure Setup
+- Created an EC2 instance
+- Attached an EBS volume
+- Generated EBS snapshots for testing
+
+### 2: IAM Configuration
+- Created a Lambda execution role
+- Granted snapshot and volume management permissions
+
+### 3: Lambda Automation
+- Developed a Python (Boto3) Lambda function
+- Retrieved and analyzed EBS snapshots
+- Automated snapshot cleanup
+
+### 4: Resource Validation
+- Verified volume existence and attachment status
+- Deleted orphaned or unused snapshots
 ------
 
 ## Project Workflow
-1. User requests are received by the Application Load Balancer (ALB).
-2. ALB distributes traffic to healthy EC2 instances through the Target Group.
-3. EC2 instances are hosted inside private subnets for enhanced security.
-4. Auto Scaling Group (ASG) automatically manages EC2 instances based on traffic demand.
-5. NAT Gateway enables private EC2 instances to securely access the internet.
-6. The VPC manages networking, routing, and secure communication between resources.
 
-        Users → ALB → Target Group → Private EC2 Instances → ASG Scaling → NAT Gateway → Internet
+         Create AWS Resources
+                ↓
+         Generate EBS Snapshots
+                ↓
+         Configure IAM Role
+                ↓
+         Develop Lambda Function
+                ↓
+         Identify Unused Snapshots
+                ↓
+         Delete Stale Snapshots
+                ↓
+         Optimize AWS Storage Costs
 ------
 
-## Learning Outcome
-- AWS VPC architecture
-- NAT Gateway and ALB setup
-- Auto Scaling configuration
-- Bastion Host SSH access
-- Traffic routing and load balancing
-- Gained hands-on AWS deployment experience
+## My Learnings
+- Gained hands-on experience with AWS Lambda and serverless automation
+- Learned to use Boto3 for AWS resource management
+- Understood EBS snapshots and storage optimization
+- Automated cloud resource cleanup using Python
+- Knowledge on AWS cost optimization practices
+- Identified and removed unused resources
 ----
 
 ## Project Insights
-This architecture provides a secure and highly available AWS environment using VPC, private subnets, NAT Gateway, ALB, and Auto Scaling to manage traffic distribution, scalability, and secure server communication.
+
+Successfully automated EBS snapshot cleanup using AWS Lambda and Python, reducing unnecessary storage costs while gaining hands-on experience in AWS cost optimization, serverless automation, and cloud resource management.
 
 -----
