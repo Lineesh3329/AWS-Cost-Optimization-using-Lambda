@@ -1,4 +1,4 @@
-# `AWS Cost Optimization Using Lambda`
+# `AWS Cost Optimization Using Lambda Automation`
 
 ## Project Overview
 
